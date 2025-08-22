@@ -1,0 +1,21 @@
+# Note: The appearance of your terminal may also be influenced by your shell prompt (e.g., Starship),
+# which can add colors and styling independently of Alacritty's color settings.
+[env]
+TERM = "xterm-256color"
+
+[font]
+normal = { family = "NotoSansM Nerd Font", style = "Regular" }
+bold = { family = "NotoSansM Nerd Font", style = "Bold" }
+italic = { family = "NotoSansM Nerd Font", style = "Italic" }
+# size = 9
+
+[window]
+padding.x = 14
+padding.y = 14
+decorations = "None"
+opacity = 0.9
+
+[keyboard]
+bindings = [
+{ key = "F11", action = "ToggleFullscreen" }
+]
