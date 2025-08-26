@@ -1,0 +1,24 @@
+#
+# ~/.bashrc
+#
+eval "$(starship init bash)"
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+    . /etc/bashrc
+fi
+
+# Color aliases
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+PS1='[\u@\h \W]\$ '
+
+# User specific environment and startup programs
+export SCRIPTS="$HOME/.config/waybar"
+
+# Make Electron apps (like VS Code) use Wayland by default
+export ELECTRON_OZONE_PLATFORM_HINT=wayland
+
+# Add any other environment variables or aliases here

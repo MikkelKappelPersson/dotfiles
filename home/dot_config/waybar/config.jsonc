@@ -1,3 +1,6 @@
+// https://github.com/Alexays/Waybar
+// https://github.com/Alexays/Waybar/wiki
+
 // -*- mode: jsonc -*-
 {
     // "layer": "top", // Waybar at top layer
@@ -19,18 +22,31 @@
         "custom/media"
     ],
     "modules-right": [
-        
-        "idle_inhibitor",
-        "pulseaudio",
-        "network",
-        "power-profiles-daemon",
-        "backlight",
-        "keyboard-state",
-        "battery",
         "tray",
-        "custom/power",
-        "custom/control-center"
+        "idle_inhibitor",
+        "group/connections",
+        "group/control-center"
     ],
+
+    "group/connections": {
+        "orientation": "horizontal",
+        "modules": [
+            "network",
+            "bluetooth"
+        ]
+    },
+
+    "group/control-center": {
+        "orientation": "horizontal",
+        "modules": [
+            "pulseaudio",
+            "battery",
+            "custom/notifications",
+            "custom/power"
+            
+        ]
+    },
+
     // Modules configuration
     "hyprland/workspaces": {
         "disable-scroll": true,
@@ -52,9 +68,9 @@
             "update-active-window": true,
             "format": "{icon}",
             "icon-size": 18,
-            "on-click-window": "${SCRIPTS}/focus-window.sh {address} {button}"
+            "on-click-window": "/home/mikkelkp/.config/waybar/focus-window.sh {address} {button}"
         }
-},
+    },
     "keyboard-state": {
         "numlock": true,
         "capslock": true,
@@ -110,12 +126,11 @@
         }
     },
     "tray": {
-        "icon-size": 21,
-        "spacing": 10,
-        "icons": {
-        "blueman": "bluetooth",
-        "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
-    }
+        // "icon-size": 16,                // Smaller icons
+        "spacing": 2,                   // Tighter spacing
+        "show-passive-items": false,    // Hide inactive items automatically
+        "reverse-direction": true,      // Show newest items first
+        "tooltip": true
     },
     "clock": {
         // "timezone": "America/New_York",
@@ -136,30 +151,38 @@
                     }
     },
 
-    "backlight": {
-        // "device": "acpi_video1",
-        "format": "{percent}% {icon}",
-        "format-icons": ["", "", "", "", "", "", "", "", ""]
-    },
-
     "battery": {
         "states": {
             // "good": 95,
             "warning": 30,
             "critical": 15
         },
-        "format": "{capacity}% {icon}",
-        "format-full": "{capacity}% {icon}",
-        "format-charging": "{capacity}% ",
-        "format-plugged": "{capacity}% ",
+        "format": "{icon} {capacity}%",
+        "format-full": "{icon} {capacity}%",
+        "format-charging": "󰂄 {capacity}% ",
+        "format-plugged": "󰚥 {capacity}%",
         "format-alt": "{time} {icon}",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
-        "format-icons": ["", "", "", "", ""]
+        "format-icons": ["", "", "", "", ""],
+        // Launch control center
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true
     },
 
     "battery#bat2": {
-        "bat": "BAT2"
+        "bat": "BAT2",
+        // Launch control center
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true
     },
 
     "power-profiles-daemon": {
@@ -174,34 +197,68 @@
       }
     },
 
+    // https://github.com/Alexays/Waybar/wiki/Module:-Network
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-ethernet": "{ipaddr}/{cidr} ",
-        "tooltip-format": "{ifname} via {gwaddr} ",
-        "format-linked": "{ifname} (No IP) ",
-        "format-disconnected": "Disconnected ⚠",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+
+        // Bar formats (minimal)
+        "format-wifi": " {signalStrength}%",
+        "format-ethernet": "",
+        "format-linked": "",
+        "format-disconnected": "",
+
+        // Tooltips
+        "tooltip": true,
+        "tooltip-format": "{ifname}", // Fallback if type-specific isn't used
+        "tooltip-format-wifi": "SSID: {essid}\nIF: {ifname}\nIP: {ipaddr}/{cidr}\nGW: {gwaddr}\nSignal: {signalStrength}%",
+        "tooltip-format-ethernet": "IF: {ifname}\nIP: {ipaddr}/{cidr}\nGW: {gwaddr}",
+        "tooltip-format-disconnected": "IF: {ifname}\nStatus: Disconnected",
+        "tooltip-format-disabled": "IF: {ifname}\nStatus: Disabled",
+
+        // Actions
+        "on-click": "nm-connection-editor"
     },
+
+    "bluetooth": {
+        "format": " {status}",
+        "format-connected": " {device_alias}",
+        "format-connected-battery": " {device_alias} {device_battery_percentage}%",
+        // "format-device-preference": [ "device1", "device2" ], // preference list deciding the displayed device
+        "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+        "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
+        
+        // Actions
+        "on-click": "blueman-manager"
+    },
+
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
-        "format": "{volume}% {icon} {format_source}",
-        "format-bluetooth": "{volume}% {icon} {format_source}",
-        "format-bluetooth-muted": " {icon} {format_source}",
-        "format-muted": " {format_source}",
-        "format-source": "{volume}% ",
+        "format": "{icon} {volume}%",
+        "format-bluetooth": "{icon} {format_source}",
+        "format-bluetooth-muted": "{icon} {format_source}",
+        "format-muted": "{format_source}",
+        "format-source": "",
         "format-source-muted": "",
         "format-icons": {
             "headphone": "",
-            "hands-free": "",
-            "headset": "",
+            "hands-free": "󰂑",
+            "headset": "󰋎",
             "phone": "",
             "portable": "",
             "car": "",
             "default": ["", "", ""]
         },
-        "on-click": "pavucontrol"
+        // Launch control center
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true
     },
+
 
     "custom/media": {
         "format": "{icon} {text}",
@@ -216,30 +273,29 @@
     },
 
     "custom/power": {
-        "format" : "⏻ ",
+        "format" : "",
 		"tooltip": false,
-		"menu": "on-click",
-		"menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
-		"menu-actions": {
-			"shutdown": "shutdown",
-			"reboot": "reboot",
-			"suspend": "systemctl suspend",
-			"hibernate": "systemctl hibernate"
-		}
+        // Launch control center
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true
     },
 
-    "custom/control-center": {
+    "custom/notifications": {
         "tooltip": false,
         "format": "{icon}",
         "format-icons": {
-        "notification": "<span foreground='red'><sup></sup></span>",
-        "none": "",
-        "dnd-notification": "<span foreground='red'><sup></sup></span>",
-        "dnd-none": "",
-        "inhibited-notification": "<span foreground='red'><sup></sup></span>",
+        "notification": "󰅸",
+        "none": "󰂜",
+        "dnd-notification": "󰪑",
+        "dnd-none": "󰪑",
+        "inhibited-notification": "󰅸",
         "inhibited-none": "",
-        "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
-        "dnd-inhibited-none": ""
+        "dnd-inhibited-notification": "󰪑",
+        "dnd-inhibited-none": "󰪑"
         },
         "return-type": "json",
         "exec-if": "which swaync-client",
