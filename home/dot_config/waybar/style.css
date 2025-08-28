@@ -2,9 +2,9 @@
 @define-color white rgba(255, 255, 255, 1);
 @define-color black rgba(0, 0, 0, 1);
 @define-color module-bg rgba(50, 50, 50, 0.5);
-@define-color module-hover rgba(160, 160, 160, 0.8);
+@define-color module-hover rgba(200, 200, 200, 0.5);
 @define-color module-active rgba(0, 0, 0, 0.4);
-@define-color module-active-self rgba(0, 0, 0, 0.55);
+@define-color module-active-self rgba(0, 0, 0, 0.60);
 @define-color pink-highlighter rgba(228,40,156,1);
 /* https://github.com/Alexays/Waybar/wiki/Styling */
 
@@ -53,7 +53,7 @@
     padding:0px 10px;
     background-color: transparent;
     color: @white;
-    
+    /* Ensure the button captures hover events from child elements */
 }
 
 #workspaces button.active,
@@ -65,6 +65,7 @@
   background-color: @module-active; /* Reference dark active color */
   background: @module-active;
   text-shadow: 1px 0px 3px @black;
+  box-shadow: 0px -10px 10px 0px darker(@module-active) inset;
 }
 
 #workspaces button:hover,
@@ -74,13 +75,16 @@
 #bluetooth:hover,
 #control-center:hover,
 #idle_inhibitor:hover {
-  background: @module-hover; /* Reference bright hover color */
-  background-color: @module-hover;
-  box-shadow: 1px 0px 2px 0px darker(@module-hover);
+    background: @module-hover; /* Reference bright hover color */
+    background-color: @module-hover;
+    text-shadow: 1px 0px 3px @black;
+    box-shadow: 0px 2px 4px 0px darker(@module-active), 0px -10px 5px 0px darker(@module-hover) inset;
+    border-color: transparent;
 }
 
+
 tooltip {
-    background: @module-bg;
+    background: @module-active-self;
 }
 
 #tray,
@@ -165,7 +169,7 @@ label:focus {
 
 #clock {
     padding: 0px 10px;
-    margin: 5px 0px;
+    margin: 5px 10px;
     background-color: @module-active-self;
 }
 #network.disconnected {
