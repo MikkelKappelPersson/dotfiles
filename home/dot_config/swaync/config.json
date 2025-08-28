@@ -7,7 +7,6 @@
   "control-center-layer": "top",
   "layer-shell": true,
   "layer-shell-cover-screen": true,
-  "cssPriority": "highest",
   "control-center-margin-top": 0,
   "control-center-margin-bottom": 0,
   "control-center-margin-right": 0,
@@ -51,16 +50,15 @@
     }
   },
   "widgets": [
-    "inhibitors",
-    "title",
     "menubar",
-    "buttons-grid",
-    "dnd",
-    "notifications",
     "backlight",
     "backlight#KB",
     "volume",
-
+    "buttons-grid",
+    "inhibitors",
+    "title",
+    "dnd",
+    "notifications",
     "mpris"
   ],
 
@@ -100,28 +98,6 @@
     },
 
     "menubar": {
-      "menu#power-buttons": {
-        "label": "", 
-        "position": "right",
-        "actions": [ 
-          {
-            "label": "   Reboot",
-            "command": "systemctl reboot"
-          },
-          {
-            "label": "   Lock",
-            "command": "swaylock.sh"
-          },
-          {
-            "label": "   Logout",
-            "command": "loginctl terminate-session ${XDG_SESSION_ID-}"
-          },
-          {
-            "label": "   Shut down",
-            "command": "systemctl poweroff"
-          }
-        ]
-      },
       "menu#powermode-buttons": {
         "label": "󰌪", 
         "position": "right",
@@ -140,62 +116,32 @@
           }
         ]
       },
-      "menu#screenshot-buttons": {
-        "label": "󰄀",
-        "position": "left",
+      "menu#power-buttons": {
+        "label": "",
+        "position": "right",
         "actions": [
           {
-            "label": "󰄀   Entire screen",
-            "command": "swaync-client -cp && sleep 1 && hyprshot -m output"
+            "label": "   Reboot",
+            "command": "systemctl reboot"
           },
           {
-            "label": "󰄀   Select a region",
-            "command": "swaync-client -cp && sleep 1 && hyprshot -m region"
+            "label": "   Lock",
+            "command": "swaylock.sh"
           },
           {
-            "label": "󰄀   Open screenshot menu",
-            "command": "swaync-client -cp && rofi-screenshot"
+            "label": "   Logout",
+            "command": "loginctl terminate-session ${XDG_SESSION_ID-}"
           },
           {
-            "label": "󰄀   Open screenshot folder",
-            "command": "exo-open $HYPRSHOT_DIR"
-          }
-        ]
-      },
-      "menu#screencast-buttons": {
-        "label": "",
-        "position": "left",
-        "actions": [
-          {
-            "label": "   Entire screen",
-            "command": "swaync-client -cp && sleep 1 && recording.sh toggle fullscreen"
-          },
-          {
-            "label": "   Select a region",
-            "command": "swaync-client -cp && sleep 1 && recording.sh toggle region"
-          },
-          {
-            "label": "   Stop",
-            "command": "swaync-client -cp && recording.sh stop"
-          },
-          {
-            "label": "   Open screencast folder",
-            "command": "$XDG_VIDEOS_DIR/Screencasts"
+            "label": "   Shut down",
+            "command": "systemctl poweroff"
           }
         ]
       }
     },
-
     "buttons-grid": {
+      "buttons-per-row": 3,
       "actions": [
-        {
-          "label": "󰈀",
-          "command": "nm-connection-editor"
-        },
-        {
-          "label": "󰂯",
-          "command": "blueman-manager"
-        },
         {
           "label": "",
           "command": "nwg-look"
@@ -207,27 +153,20 @@
         {
           "label": "󰎆",
           "command": "ymuse"
+        },
+        {
+          "label": "󰖔",
+          "type": "toggle",
+          "active": false,
+          "command": "sh -c '[[ $SWAYNC_TOGGLE_STATE == true ]] && hyprctl hyprsunset temperature 3200 || hyprctl hyprsunset identity'",
+          "update-command": "sh -c 'temp=$(hyprctl hyprsunset -j 2>/dev/null | jq -r \".temperature // 6500\"); [[ $temp -lt 6000 ]] && echo true || echo false'"
         }
       ]
     },
 
     "mpris": {
-      "blacklist": [],
-      "autohide": false,
       "show-album-art": "always",
       "loop-carousel": false
-    },
-    "buttons-grid-old": {
-      "buttons-per-row": 7,
-      "actions": [
-        {
-          "label": "直",
-          "type": "toggle",
-          "active": true,
-          "command": "sh -c '[[ $SWAYNC_TOGGLE_STATE == true ]] && nmcli radio wifi on || nmcli radio wifi off'",
-          "update-command": "sh -c '[[ $(nmcli radio wifi) == \"enabled\" ]] && echo true || echo false'"
-        }
-      ]
     }
   }
 }
