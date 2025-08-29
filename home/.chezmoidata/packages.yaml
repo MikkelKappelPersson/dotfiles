@@ -55,3 +55,6 @@ packages:
       # System utilities
       - brightnessctl
 
+      # Fonts
+      - ttf-noto-nerd
+
