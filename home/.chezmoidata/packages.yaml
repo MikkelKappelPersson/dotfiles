@@ -1,0 +1,57 @@
+packages:
+  endeavouros:
+    yay:
+      # Development tools
+      - git
+      - visual-studio-code-bin
+      - starship
+
+   
+      # Browsers and applications
+      - firefox
+      - spotify
+      - zotero-bin
+      - obsidian
+      - onlyoffice-bin
+      - nextcloud
+      - bitwarden
+      - vlc
+
+      # mail
+      - evolution-ews
+
+      # Core Hyprland packages
+      - hyprland
+      - hyprlock
+      - hypridle
+      - hyprpaper
+      - hyprshot
+      - hyprsunset
+      
+      # Wayland/compositor support
+      - xdg-desktop-portal-hyprland
+      
+      # Window management and UI
+      - rofi-wayland
+      - wofi
+      - waybar
+      - swaync
+      - dunst
+      - swww
+      
+      # Terminal emulators
+      - alacritty
+      
+      # Appearance and theming
+      - nwg-look
+      - font-manager
+
+      # Audio (PipeWire)
+      - pipewire-alsa
+      - pipewire-jack
+      - pipewire-pulse
+      - pavucontrol
+      
+      # System utilities
+      - brightnessctl
+
