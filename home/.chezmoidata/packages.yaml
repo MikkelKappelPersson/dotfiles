@@ -55,6 +55,13 @@ packages:
       # System utilities
       - brightnessctl
 
+      # Network and Bluetooth management
+      - networkmanager
+      - nm-connection-editor
+
+      # Bluetooth management
+      - blueman
+
       # Fonts
       - ttf-noto-nerd
 
