@@ -22,3 +22,10 @@ export SCRIPTS="$HOME/.config/waybar"
 export ELECTRON_OZONE_PLATFORM_HINT=wayland
 
 # Add any other environment variables or aliases here
+
+# Launch gnome-control-center with GNOME env without affecting other apps
+gnome-control-center() {
+    env XDG_CURRENT_DESKTOP=GNOME \
+        XDG_SESSION_DESKTOP=gnome \
+        command gnome-control-center "$@"
+}
