@@ -216,7 +216,7 @@
         "tooltip-format-disabled": "IF: {ifname}\nStatus: Disabled",
 
         // Actions
-        "on-click": "nm-connection-editor"
+        "on-click": "env XDG_CURRENT_DESKTOP=GNOME XDG_SESSION_DESKTOP=gnome gnome-control-center wifi"
     },
 
     "bluetooth": {
