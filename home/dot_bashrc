@@ -30,7 +30,10 @@ eval "$(pyenv init -)"
 
 # Launch gnome-control-center with GNOME env without affecting other apps
 gnome-control-center() {
-    env XDG_CURRENT_DESKTOP=GNOME \
+    # run the shell builtin `command` to invoke `env` so `env` executes
+    # the real `gnome-control-center` (otherwise `env` would try to
+    # execute a non-existent external `command` program)
+    command env XDG_CURRENT_DESKTOP=GNOME \
         XDG_SESSION_DESKTOP=gnome \
-        command gnome-control-center "$@"
+        gnome-control-center "$@"
 }
