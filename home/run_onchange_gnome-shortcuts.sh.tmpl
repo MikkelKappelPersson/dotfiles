@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+if [ "${XDG_CURRENT_DESKTOP-}" != "GNOME" ] && [ "${XDG_SESSION_DESKTOP-}" != "gnome" ]; then
+    echo "Not GNOME session, skipping shortcuts"
+    exit 0
+fi
+
+# Set favorites in order for switch-to-application-1 through 5
+gsettings set org.gnome.shell favorite-apps "['firefox.desktop','Alacritty.desktop','code.desktop','org.gnome.Evolution.desktop','org.gnome.Nautilus.desktop']"
+
+# Map shortcuts to applications
+gsettings set org.gnome.shell.keybindings switch-to-application-1 "['<Super>b']"
+gsettings set org.gnome.shell.keybindings switch-to-application-2 "['<Super>Return']" 
+gsettings set org.gnome.shell.keybindings switch-to-application-3 "['<Super>c']"
+gsettings set org.gnome.shell.keybindings switch-to-application-4 "['<Super>m']"
+gsettings set org.gnome.shell.keybindings switch-to-application-5 "['<Super>e']"
+
+# Super+q to close current window
+gsettings set org.gnome.desktop.wm.keybindings close "['<Alt>F4', '<Super>q']"
+
+echo "GNOME shortcuts applied: Super+b=Firefox, Super+Enter=Alacritty, Super+c=Code, Super+m=Evolution, Super+e=Nautilus, Super+q=Close"
