@@ -10,6 +10,9 @@ fi
 # Set favorites in order for switch-to-application-1 through 5
 gsettings set org.gnome.shell favorite-apps "['firefox.desktop','Alacritty.desktop','code.desktop','org.gnome.Evolution.desktop','org.gnome.Nautilus.desktop']"
 
+# Disable conflicting GNOME shortcuts
+gsettings set org.gnome.shell.keybindings toggle-message-tray "['<Super>v']"
+
 # Map shortcuts to applications
 gsettings set org.gnome.shell.keybindings switch-to-application-1 "['<Super>b']"
 gsettings set org.gnome.shell.keybindings switch-to-application-2 "['<Super>Return']" 
