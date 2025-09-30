@@ -5,6 +5,8 @@ packages:
       - git
       - visual-studio-code-bin
       - starship
+      - rclone
+      - bitwarden-cli
 
    
       # Browsers and applications
