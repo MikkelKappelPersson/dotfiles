@@ -16,7 +16,6 @@ alias grep='grep --color=auto'
 PS1='[\u@\h \W]\$ '
 
 # User specific environment and startup programs
-export SCRIPTS="$HOME/.config/waybar"
 
 # Make Electron apps (like VS Code) use Wayland by default
 export ELECTRON_OZONE_PLATFORM_HINT=wayland

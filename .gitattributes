@@ -1,0 +1,7 @@
+# Hyprland configs: when merging main into hyprland, keep hyprland's version
+home/dot_config/hypr/* merge=ours
+home/dot_config/swaync/* merge=ours
+home/dot_config/waybar/* merge=ours
+
+# GNOME configs: when merging main into hyprland, ignore GNOME-specific files
+home/run_onchange_gnome-shortcuts.sh.tmpl merge=ours

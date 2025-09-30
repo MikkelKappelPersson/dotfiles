@@ -6,11 +6,22 @@ set -eufo pipefail
 
 echo "Installing packages for EndeavourOS with yay..."
 
-# Install all packages with yay (both official and AUR)
+# Install base packages with yay (both official and AUR)
 {{ if .packages.endeavouros.yay -}}
-echo "Installing packages..."
+echo "Installing base packages..."
 yay -S --needed --noconfirm {{ range .packages.endeavouros.yay }}{{ . }} {{ end }}
 {{ end -}}
+
+# Check if we're on hyprland branch and install hyprland-specific packages
+CURRENT_BRANCH=$(git -C {{ .chezmoi.sourceDir }} rev-parse --abbrev-ref HEAD 2>/dev/null || echo "main")
+if [ "$CURRENT_BRANCH" = "hyprland" ]; then
+    {{ if .packages.endeavouros.hyprland -}}
+    echo "Installing Hyprland packages..."
+    yay -S --needed --noconfirm {{ range .packages.endeavouros.hyprland }}{{ . }} {{ end }}
+    {{ end -}}
+else
+    echo "Not on hyprland branch, skipping Hyprland packages..."
+fi
 
 echo "Package installation complete!"
 {{ end -}}

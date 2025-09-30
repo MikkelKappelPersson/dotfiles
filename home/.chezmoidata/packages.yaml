@@ -13,13 +13,30 @@ packages:
       - zotero-bin
       - obsidian
       - onlyoffice-bin
-      - nextcloud
       - bitwarden
       - vlc
 
       # mail
       - evolution-ews
+      
+      # Terminal emulators
+      - alacritty
+      
+      # Appearance and theming
+      - nwg-look
+      - font-manager
 
+      # Audio (PipeWire)
+      - pipewire-alsa
+      - pipewire-jack
+      - pipewire-pulse
+      - pavucontrol
+
+      # Fonts
+      - ttf-noto-nerd
+
+    # Hyprland-specific packages (only install on hyprland branch)
+    hyprland:
       # Core Hyprland packages
       - hyprland
       - hyprlock
@@ -39,29 +56,11 @@ packages:
       - dunst
       - swww
       
-      # Terminal emulators
-      - alacritty
-      
-      # Appearance and theming
-      - nwg-look
-      - font-manager
-
-      # Audio (PipeWire)
-      - pipewire-alsa
-      - pipewire-jack
-      - pipewire-pulse
-      - pavucontrol
-      
-      # System utilities
+      # System utilities (not included in GNOME by default)
       - brightnessctl
 
-      # Network and Bluetooth management
+      # Network and Bluetooth management (GNOME has these built-in)
       - networkmanager
       - nm-connection-editor
-
-      # Bluetooth management
       - blueman
-
-      # Fonts
-      - ttf-noto-nerd
 
