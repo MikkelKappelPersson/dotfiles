@@ -23,10 +23,10 @@ export ELECTRON_OZONE_PLATFORM_HINT=wayland
 
 # Add any other environment variables or aliases here
 
-# pyenv setup
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+# Miniforge conda/mamba initialization
+eval "$(/opt/miniforge/bin/conda shell.bash hook 2>/dev/null)" || true
+eval "$(/opt/miniforge/bin/mamba shell.bash hook 2>/dev/null)" || true
+
 
 # Launch gnome-control-center with GNOME env without affecting other apps
 gnome-control-center() {
