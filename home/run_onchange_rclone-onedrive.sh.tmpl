@@ -1,0 +1,5 @@
+#!/bin/bash
+# Enable and start rclone OneDrive mount
+mkdir -p ~/.mnt/onedrive
+systemctl --user enable rclone-onedrive.service
+systemctl --user start rclone-onedrive.service
