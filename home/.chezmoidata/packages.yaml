@@ -8,6 +8,10 @@ packages:
       - rclone
       - bitwarden-cli
 
+      # Security
+      - wireguard-tools
+      - clamav
+      - clamtk
    
       # Browsers and applications
       - firefox
