@@ -4,10 +4,12 @@ After=network.target
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/rclone mount onedrive: %h/mnt/onedrive --vfs-cache-mode writes
+ExecStart=/usr/bin/rclone mount onedrive: %h/mnt/onedrive --vfs-cache-mode writes --allow-non-empty
 ExecStop=/bin/fusermount -u %h/mnt/onedrive
 Restart=on-failure
 RestartSec=5
+StandardOutput=journal
+StandardError=journal
 
 [Install]
 WantedBy=default.target

@@ -1,5 +1,32 @@
 #!/bin/bash
+set -e
+
 # Enable and start rclone OneDrive mount
-mkdir -p ~/.mnt/onedrive
+mkdir -p ~/mnt/onedrive
+
+# Reload systemd to pick up the new/updated service file
+systemctl --user daemon-reload
+
+# Enable the service
 systemctl --user enable rclone-onedrive.service
+
+# Stop any existing mount to restart cleanly
+systemctl --user stop rclone-onedrive.service 2>/dev/null || true
+
+# Wait a moment for the mount to unmount
+sleep 2
+
+# Start the service and wait for mount to be ready
 systemctl --user start rclone-onedrive.service
+
+# Wait for the mount point to become available (max 10 seconds)
+for i in {1..20}; do
+  if mountpoint -q "$HOME/mnt/onedrive"; then
+    echo "rclone mount successful"
+    exit 0
+  fi
+  sleep 0.5
+done
+
+echo "Warning: rclone mount may not be ready yet. Check status with: systemctl --user status rclone-onedrive.service"
+exit 0

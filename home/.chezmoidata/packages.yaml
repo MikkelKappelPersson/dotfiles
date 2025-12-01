@@ -15,7 +15,7 @@ packages:
    
       # Browsers and applications
       - firefox
-      - spotify
+      # - spotify
       - zotero-bin
       - obsidian
       - onlyoffice-bin

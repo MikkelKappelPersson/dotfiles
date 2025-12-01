@@ -24,5 +24,15 @@ else
 fi
 
 echo "Package installation complete!"
+
+# Enable user_allow_other for rclone FUSE mounts
+echo "Configuring FUSE for user mounts..."
+if ! grep -q "^user_allow_other" /etc/fuse.conf 2>/dev/null; then
+    echo "Enabling user_allow_other in /etc/fuse.conf..."
+    sudo sed -i 's/#user_allow_other/user_allow_other/' /etc/fuse.conf || true
+else
+    echo "user_allow_other already enabled"
+fi
+
 {{ end -}}
 {{ end -}}
