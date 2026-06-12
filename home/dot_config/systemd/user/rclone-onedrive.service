@@ -4,8 +4,8 @@ After=network.target
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/rclone mount onedrive: %h/mnt/onedrive --vfs-cache-mode writes --allow-non-empty
-ExecStop=/bin/fusermount -u %h/mnt/onedrive
+ExecStart=/usr/bin/rclone mount onedrive: %h/OneDrive --vfs-cache-mode full --cache-dir %h/.cache/rclone/onedrive --vfs-cache-max-size 20G --vfs-cache-max-age 744h --vfs-read-ahead 64M --vfs-write-back 5s --allow-non-empty
+ExecStop=/bin/fusermount -u %h/OneDrive
 Restart=on-failure
 RestartSec=5
 StandardOutput=journal
