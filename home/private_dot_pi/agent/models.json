@@ -1,0 +1,23 @@
+{
+  "providers": {
+    "vllm-local": {
+      "baseUrl": "http://100.68.197.95:8000/v1",
+      "api": "openai-completions",
+      "apiKey": "no-auth-needed",
+      "compat": {
+        "supportsDeveloperRole": false,
+        "supportsReasoningEffort": false
+      },
+      "models": [
+        {
+          "id": "RedHatAI/gemma-4-26B-A4B-it-NVFP4",
+          "name": "Gemma 4 26B (vLLM local)",
+          "reasoning": true,
+          "input": ["text"],
+          "contextWindow": 262144,
+          "maxTokens": 8192
+        }
+      ]
+    }
+  }
+}
