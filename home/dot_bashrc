@@ -36,3 +36,17 @@ gnome-control-center() {
         XDG_SESSION_DESKTOP=gnome \
         gnome-control-center "$@"
 }
+
+# uv
+export PATH="/home/mikkelkp/.local/bin:$PATH"
+export PATH="$HOME/.npm-global/bin:$PATH"
+
+
+# Yazi: leave a current dir
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	command yazi "$@" --cwd-file="$tmp"
+	IFS= read -r -d '' cwd < "$tmp"
+	[ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd"
+	command rm -f -- "$tmp"
+}

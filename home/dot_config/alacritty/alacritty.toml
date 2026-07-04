@@ -4,9 +4,9 @@
 TERM = "xterm-256color"
 
 [font]
-normal = { family = "NotoSansM Nerd Font", style = "Regular" }
-bold = { family = "NotoSansM Nerd Font", style = "Bold" }
-italic = { family = "NotoSans Nerd Font", style = "Italic" }
+normal = { family = "SauceCodePro Nerd Font", style = "Regular" }
+bold = { family = "SauceCodePro Nerd Font", style = "Bold" }
+italic = { family = "SauceCodePro Nerd Font", style = "Italic" }
 # size = 9
 
 [window]
