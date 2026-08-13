@@ -8,7 +8,7 @@ if [ "${XDG_CURRENT_DESKTOP-}" != "GNOME" ] && [ "${XDG_SESSION_DESKTOP-}" != "g
 fi
 
 # Set favorites in order for switch-to-application-1 through 5
-gsettings set org.gnome.shell favorite-apps "['firefox.desktop','Alacritty.desktop','code.desktop','org.gnome.Evolution.desktop','org.gnome.Nautilus.desktop']"
+gsettings set org.gnome.shell favorite-apps "['firefox.desktop','Alacritty.desktop','code.desktop','org.mozilla.Thunderbird.desktop','org.gnome.Nautilus.desktop']"
 
 # Disable conflicting GNOME shortcuts
 gsettings set org.gnome.shell.keybindings toggle-message-tray "['<Super>v']"

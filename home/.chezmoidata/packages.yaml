@@ -23,7 +23,7 @@ packages:
       - vlc
 
       # mail
-      - evolution-ews
+      - thunderbird
       
       # Terminal emulators
       - alacritty
