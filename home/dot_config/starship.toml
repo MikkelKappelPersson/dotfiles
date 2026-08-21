@@ -4,7 +4,10 @@ format = """
 [](color_orange)\
 $os\
 $username\
-[](bg:color_yellow fg:color_orange)\
+
+[](bg:color_orangeyellow fg:color_orange)\
+$hostname\
+[](bg:color_yellow fg:color_orangeyellow)\
 $directory\
 [](fg:color_yellow bg:color_aqua)\
 $git_branch\
@@ -39,6 +42,7 @@ color_blue = '#458588'
 color_aqua = '#689d6a'
 color_green = '#98971a'
 color_orange = '#d65d0e'
+color_orangeyellow = '#d7700c'
 color_purple = '#b16286'
 color_red = '#cc241d'
 color_yellow = '#d79921'
@@ -75,6 +79,11 @@ show_always = true
 style_user = "bg:color_orange fg:color_fg0"
 style_root = "bg:color_orange fg:color_fg0"
 format = '[ $user ]($style)'
+
+[hostname]
+ssh_only = true
+style = "bg:color_orangeyellow fg:color_fg0"
+format = '[  $hostname ](bg:color_orangeyellow fg:color_fg0)'
 
 [directory]
 style = "fg:color_fg0 bg:color_yellow"
@@ -154,6 +163,7 @@ style = "bg:color_bg3"
 format = '[[ $symbol( $context) ](fg:#83a598 bg:color_bg3)]($style)'
 
 [conda]
+symbol = "󱔎"
 style = "bg:color_bg3"
 format = '[[ $symbol( $environment) ](fg:#83a598 bg:color_bg3)]($style)'
 
