@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+if [ "${XDG_CURRENT_DESKTOP-}" != "GNOME" ] && [ "${XDG_SESSION_DESKTOP-}" != "gnome" ]; then
+    echo "Not GNOME session, skipping settings"
+    exit 0
+fi
+
+# Default terminal application
+gsettings set org.gnome.desktop.default-applications.terminal exec 'alacritty'
+
+echo "GNOME settings applied"
