@@ -1,0 +1,25 @@
+{
+  "providers": {
+    "ollama-eos-ext": {
+      "api": "openai-completions",
+      "apiKey": "ollama",
+      "baseUrl": "http://eos-ext:11434/v1",
+      "models": [
+        {
+          "id": "qwen3.8-unsloth",
+          "name": "Qwen3.8 27B Unsloth",
+          "reasoning": true,
+          "input": ["text", "image"],
+          "contextWindow": 262144,
+          "maxTokens": 65536,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          }
+        }
+      ]
+    }
+  }
+}
