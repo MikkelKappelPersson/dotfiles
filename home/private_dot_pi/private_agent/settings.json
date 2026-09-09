@@ -1,8 +1,8 @@
 {
-  "lastChangelogVersion": "0.84.4",
+  "lastChangelogVersion": "0.85.1",
   "theme": "dark",
-  "defaultProvider": "ollama-eos-ext",
-  "defaultModel": "qwen3.8-unsloth",
+  "defaultProvider": "vllm-eos-ext",
+  "defaultModel": "qwen3.8-27b",
   "defaultThinkingLevel": "high",
   "enableSkillCommands": true,
   "showHardwareCursor": false,
@@ -19,8 +19,9 @@
     "openrouter/openai/gpt-5.6-luna",
     "openrouter/nvidia/nemotron-3-ultra-550b-a55b:free",
     "openrouter/dots-studio/dots-3-note-preview:free",
-    "ollama-eos-ext/qwen3.8-unsloth",
-    "openrouter/z-ai/glm-5.3-flash"
+    "openrouter/z-ai/glm-5.3-flash",
+    "vllm-eos-ext/qwen3.8-27b",
+    "openrouter/z-ai/glm-5.3:batch"
   ],
   "treeFilterMode": "default",
   "markdown": {

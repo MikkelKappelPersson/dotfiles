@@ -1,5 +1,31 @@
 {
   "providers": {
+    "vllm-eos-ext": {
+      "api": "openai-completions",
+      "apiKey": "vllm",
+      "baseUrl": "http://eos-ext:18020/v1",
+      "compat": {
+        "supportsDeveloperRole": false,
+        "supportsReasoningEffort": false,
+        "thinkingFormat": "qwen-chat-template"
+      },
+      "models": [
+        {
+          "id": "qwen3.8-27b",
+          "name": "Qwen3.8 27B (vLLM DFlash2)",
+          "reasoning": true,
+          "input": ["text", "image"],
+          "contextWindow": 245760,
+          "maxTokens": 32768,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          }
+        }
+      ]
+    },
     "ollama-eos-ext": {
       "api": "openai-completions",
       "apiKey": "ollama",
