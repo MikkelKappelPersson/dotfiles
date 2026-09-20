@@ -10,4 +10,13 @@ fi
 # Default terminal application
 gsettings set org.gnome.desktop.default-applications.terminal exec 'alacritty'
 
+# Default mail client (Betterbird)
+BETTERBIRD_DESKTOP='eu.betterbird.Betterbird.desktop'
+if { [ -f "/usr/share/applications/${BETTERBIRD_DESKTOP}" ] || [ -f "${HOME}/.local/share/applications/${BETTERBIRD_DESKTOP}" ]; } && command -v gio >/dev/null && command -v xdg-mime >/dev/null; then
+    gio mime x-scheme-handler/mailto "${BETTERBIRD_DESKTOP}" >/dev/null
+    gio mime message/rfc822 "${BETTERBIRD_DESKTOP}" >/dev/null
+    gio mime x-scheme-handler/mid "${BETTERBIRD_DESKTOP}" >/dev/null
+    xdg-mime default "${BETTERBIRD_DESKTOP}" x-scheme-handler/mailto message/rfc822 x-scheme-handler/mid
+fi
+
 echo "GNOME settings applied"

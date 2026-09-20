@@ -23,7 +23,7 @@ packages:
       - vlc
 
       # mail
-      - thunderbird
+      - betterbird-bin
       
       # Terminal emulators
       - alacritty
