@@ -50,3 +50,10 @@ function y() {
 	[ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd"
 	command rm -f -- "$tmp"
 }
+
+# Machine-local overrides (not tracked by chezmoi).
+# Put host-specific exports in ~/.bashrc.local, e.g.:
+#   export LUX_ROOT=/run/media/.../LuminaScale
+if [ -f "$HOME/.bashrc.local" ]; then
+  . "$HOME/.bashrc.local"
+fi

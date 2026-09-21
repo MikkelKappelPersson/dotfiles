@@ -12,7 +12,7 @@
       "models": [
         {
           "id": "qwen3.8-27b",
-          "name": "Qwen3.8 27B (vLLM DFlash2)",
+          "name": "HyperQwen 27B (Qwen3.8, DFlash2)",
           "reasoning": true,
           "input": ["text", "image"],
           "contextWindow": 245760,
