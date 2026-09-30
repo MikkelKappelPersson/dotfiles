@@ -26,7 +26,7 @@ packages:
       - betterbird-bin
       
       # Terminal emulators
-      - alacritty
+      - ghostty
       
       # Appearance and theming
       - nwg-look

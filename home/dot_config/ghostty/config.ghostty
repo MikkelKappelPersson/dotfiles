@@ -1,0 +1,34 @@
+# Ghostty configuration
+# Docs for every option: ghostty +show-config --default --docs
+# Lint after editing:  ghostty +validate-config
+# Reload:             Ctrl+Shift+,
+
+# --- Font ---
+font-family = "SauceCodePro Nerd Font"
+font-family-bold = "SauceCodePro Nerd Font"
+font-family-italic = "SauceCodePro Nerd Font"
+font-family-bold-italic = "SauceCodePro Nerd Font"
+font-size = 12
+
+# --- Theme & colors ---
+theme = Catppuccin Mocha
+#theme = Gruvbox Dark Hard
+
+# --- Window ---
+window-padding-x = 14
+window-padding-y = 14
+
+# --- Transparency ---
+background-opacity = 0.9
+background-opacity-cells = 0
+
+# Blur is a no-op on GNOME Wayland: Ghostty's Wayland path requires the
+# org_kde_kwin_blur_manager protocol, which only KDE Plasma implements
+# (on X11 it needs _KDE_NET_WM_BLUR_BEHIND_REGION). Valid values are an
+# intensity 0-100, or true/false -- NOT dark/light.
+background-blur = true
+
+# --- Keybinds ---
+keybind = f11=toggle_fullscreen
+keybind = ctrl+shift+comma=reload_config
+keybind = ctrl+comma=open_config

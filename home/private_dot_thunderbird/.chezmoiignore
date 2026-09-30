@@ -1,0 +1,90 @@
+# ~/.thunderbird/.chezmoiignore
+#
+# Tracked on purpose (the only things chezmoi owns here):
+#   <profile>/prefs.js        account definitions, identities, servers, SMTP,
+#                             CardDAV, calendars, chosen preferences
+#   <profile>/xulstore.json   column / pane / filter layout
+#   <profile>/containers.json container identities
+#
+# Everything else under ~/.thunderbird is per-machine runtime state.
+#
+# !! NEVER track the credential files. key4.db and logins.json together
+# !! decrypt to real IMAP passwords and OAuth2 refresh tokens. This dotfiles
+# !! repo is public, so `chezmoi add ~/.thunderbird` must never pick them up.
+# !! Accounts are recreated from prefs.js and you sign in once per account.
+
+# --- credentials -------------------------------------------------------------
+logins.json
+logins-backup.json
+key4.db
+cert9.db
+pkcs11.txt
+encrypted-openpgp-passphrase.txt
+openpgp.sqlite
+
+# --- message, address book and calendar data -------------------------------
+*.sqlite
+*.sqlite-*
+*-wal
+*-shm
+*-journal
+abook*
+blist.sqlite
+bounce-tracking-protection.sqlite
+webappsstore.sqlite
+training.dat
+traits.dat
+ImapMail
+ImapMail/
+Mail
+Mail/
+calendar-data
+calendar-data/
+storage
+storage/
+security_state
+datareporting
+datareporting/
+
+# --- add-ons: binaries are not tracked, extensions.webextensions.uuids in
+#     prefs.js is what pins the add-on set across machines
+extensions
+extensions/
+addons.json
+extensions.json
+addonStartup.json.lz4
+
+# --- caches, locks, binary and generated state ------------------------------
+*.bin
+*.lz4
+*.dat
+*.bak
+*.bak-*
+.parentlock
+lock
+crash-recovery
+crash-recovery/
+minidumps
+compatibility.ini
+search.json.mozlz4
+times.json
+mailViews.dat
+virtualFolders.dat
+folderCache.json
+folderTree.json
+handlers.json
+session.json
+session.json.backup
+sessionCheckpoints.json
+AlternateServices.bin
+SiteSecurityServiceState.bin
+
+# --- per-install bookkeeping and the other local profiles --------------------
+# profiles.ini is patched by run_once_thunderbird-profile.sh.tmpl instead of
+# being managed, so Thunderbird and Betterbird can keep sharing this directory.
+profiles.ini
+installs.ini
+hox2go3g.default-release
+hox2go3g.default-release/
+1bvemtsq.default
+1bvemtsq.default/
