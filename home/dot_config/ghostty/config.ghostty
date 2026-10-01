@@ -11,8 +11,8 @@ font-family-bold-italic = "SauceCodePro Nerd Font"
 font-size = 12
 
 # --- Theme & colors ---
-theme = Catppuccin Mocha
-#theme = Gruvbox Dark Hard
+# theme = Catppuccin Mocha
+theme = Nightspice
 
 # --- Window ---
 window-padding-x = 14
@@ -20,7 +20,8 @@ window-padding-y = 14
 
 # --- Transparency ---
 background-opacity = 0.9
-background-opacity-cells = 0
+ background-opacity-cells = true
+
 
 # Blur is a no-op on GNOME Wayland: Ghostty's Wayland path requires the
 # org_kde_kwin_blur_manager protocol, which only KDE Plasma implements

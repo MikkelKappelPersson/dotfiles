@@ -1,0 +1,26 @@
+# Nightspice - a terminal theme.
+# Managed in chezmoi: home/dot_config/ghostty/themes/Nightspice
+# Base: huebox. Reload: Ctrl+Shift+,
+
+palette = 0=#0a0a13
+palette = 1=#ff055e
+palette = 2=#16d290
+palette = 3=#ffdc22
+palette = 4=#00a4ff
+palette = 5=#f67dff
+palette = 6=#00f5e6
+palette = 7=#dee2ff
+palette = 8=#5b5b82
+palette = 9=#ff948b
+palette = 10=#64ffd9
+palette = 11=#ffff68
+palette = 12=#57adff
+palette = 13=#ffacff
+palette = 14=#7effff
+palette = 15=#f5faff
+background = #050a10
+foreground = #ededfe
+cursor-color = #cce4ff
+cursor-text = #0f0f1a
+selection-background = #202036
+selection-foreground = #59677d
