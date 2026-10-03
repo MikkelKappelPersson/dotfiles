@@ -1,5 +1,97 @@
 {
   "providers": {
+    "freebuff": {
+      "api": "openai-completions",
+      "apiKey": "freebuff-local",
+      "baseUrl": "http://127.0.0.1:8787/v1",
+      "compat": {
+        "supportsDeveloperRole": false,
+        "supportsReasoningEffort": false
+      },
+      "models": [
+        {
+          "id": "mimo/mimo-v2.5",
+          "name": "MiMo 2.6 Flash (freebuff)",
+          "reasoning": false,
+          "input": ["text"],
+          "contextWindow": 200000,
+          "maxTokens": 32768,
+          "cost": { "input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0 }
+        },
+        {
+          "id": "stealth/space-bunny-alpha",
+          "name": "Space Bunny Alpha (freebuff)",
+          "reasoning": false,
+          "input": ["text"],
+          "contextWindow": 128000,
+          "maxTokens": 32768,
+          "cost": { "input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0 }
+        },
+        {
+          "id": "crof/kimi-k3-eco",
+          "name": "Kimi K3 Eco (freebuff)",
+          "reasoning": false,
+          "input": ["text"],
+          "contextWindow": 128000,
+          "maxTokens": 32768,
+          "cost": { "input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0 }
+        },
+        {
+          "id": "upstage/solar-mini4",
+          "name": "Solar Mini 4 (freebuff)",
+          "reasoning": false,
+          "input": ["text"],
+          "contextWindow": 128000,
+          "maxTokens": 32768,
+          "cost": { "input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0 }
+        },
+        {
+          "id": "upstage/solar-pro4",
+          "name": "Solar Pro 4 (freebuff)",
+          "reasoning": false,
+          "input": ["text"],
+          "contextWindow": 128000,
+          "maxTokens": 32768,
+          "cost": { "input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0 }
+        },
+        {
+          "id": "deepseek/deepseek-v4-flash",
+          "name": "DeepSeek V4 Flash (freebuff)",
+          "reasoning": false,
+          "input": ["text"],
+          "contextWindow": 128000,
+          "maxTokens": 32768,
+          "cost": { "input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0 }
+        },
+        {
+          "id": "z-ai/glm-5.3-flash",
+          "name": "GLM 5.3 Flash (freebuff)",
+          "reasoning": true,
+          "input": ["text"],
+          "contextWindow": 400000,
+          "maxTokens": 32768,
+          "cost": { "input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0 }
+        },
+        {
+          "id": "openai/gpt-6-luna",
+          "name": "GPT-6 Luna (freebuff)",
+          "reasoning": true,
+          "input": ["text"],
+          "contextWindow": 200000,
+          "maxTokens": 32768,
+          "cost": { "input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0 }
+        },
+        {
+          "id": "meta/muse-spark-1.3-contributor",
+          "name": "Muse Spark 1.3 (freebuff)",
+          "reasoning": false,
+          "input": ["text"],
+          "contextWindow": 128000,
+          "maxTokens": 32768,
+          "cost": { "input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0 }
+        }
+      ]
+    },
     "vllm-eos-ext": {
       "api": "openai-completions",
       "apiKey": "vllm",

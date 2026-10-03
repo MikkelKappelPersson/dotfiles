@@ -1,15 +1,13 @@
 {
-  "lastChangelogVersion": "0.87.1",
-  "theme": "dark",
+  "lastChangelogVersion": "1.0.0",
+  "theme": "system",
   "defaultProvider": "openrouter",
-  "defaultModel": "meta/muse-spark-1.3-contributor",
-  "defaultThinkingLevel": "xhigh",
+  "defaultModel": "stealth/space-bunny-alpha",
+  "defaultThinkingLevel": "max",
   "enableSkillCommands": true,
   "showHardwareCursor": false,
   "packages": [
-    "npm:pi-mcp-adapter",
-    "npm:pi-rewind-hook",
-    "npm:pi-prefix-cache-compaction"
+    "npm:pi-rewind-hook"
   ],
   "retry": {
     "enabled": true
