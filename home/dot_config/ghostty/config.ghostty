@@ -20,7 +20,7 @@ window-padding-y = 14
 
 # --- Transparency ---
 background-opacity = 0.9
- background-opacity-cells = true
+background-opacity-cells = true
 
 
 # Blur is a no-op on GNOME Wayland: Ghostty's Wayland path requires the
@@ -28,6 +28,13 @@ background-opacity = 0.9
 # (on X11 it needs _KDE_NET_WM_BLUR_BEHIND_REGION). Valid values are an
 # intensity 0-100, or true/false -- NOT dark/light.
 background-blur = true
+
+# --- Scrolling ---
+# MX Master 3 wheel reports discrete (notched) scroll events, which Ghostty
+# multiplies by 3 lines per detent by default. That felt like a lot of
+# movement per tick, so drop it to 1. Fractional values are allowed (range
+# 0.01-10000) if you want it even gentler, e.g. discrete:0.5.
+mouse-scroll-multiplier = precision:1, discrete:1
 
 # --- Keybinds ---
 keybind = f11=toggle_fullscreen
