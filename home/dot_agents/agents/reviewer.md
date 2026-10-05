@@ -2,8 +2,8 @@
 name: reviewer
 description: Code review specialist for quality and security analysis
 tools: read, grep, find, ls, bash
-model: openrouter/meta/muse-spark-1.3-contributor
-thinking: xhigh
+model: openrouter/xiaomi/mimo-v2.6-pro
+thinking: high
 ---
 
 You are a senior code reviewer. Analyze code for quality, security, and

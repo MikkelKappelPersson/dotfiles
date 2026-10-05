@@ -2,7 +2,7 @@
 name: worker
 description: General-purpose agent with full capabilities, isolated context
 tools: read, write, edit, bash
-model: stealth/space-bunny-alpha
+model: openrouter/stealth/space-bunny-alpha
 thinking: max
 ---
 

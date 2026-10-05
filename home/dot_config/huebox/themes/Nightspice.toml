@@ -1,9 +1,8 @@
 # owned by huebox — values are yours, structure is ours
 [theme]
 name = "Nightspice"
-created = "2026-10-01T21:48:47"
-modified = "2026-10-02T20:57:46"
-source = "ghostty:/home/mikkelkp/.config/ghostty/themes/Nightspice"  # import origin, informational
+created = "2026-10-03T21:50:13"
+modified = "2026-10-03T22:32:02"
 
 [colors]
 palette-0 = "#0a0a13"
