@@ -33,8 +33,10 @@ ensure_deps() {
 
 clone_if_missing "pi-shepherd" "https://github.com/MikkelKappelPersson/pi-shepherd.git"
 clone_if_missing "pi-zvec-grep" "https://github.com/MikkelKappelPersson/pi-zvec-grep.git"
+clone_if_missing "pi-opencode-direct-rotator" "https://github.com/MikkelKappelPersson/pi-opencode-direct-rotator.git"
 
 ensure_deps "pi-shepherd"
 ensure_deps "pi-zvec-grep"
+ensure_deps "pi-opencode-direct-rotator"
 
 echo "pi extensions ready"
