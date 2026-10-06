@@ -7,8 +7,7 @@
   "enableSkillCommands": true,
   "showHardwareCursor": false,
   "packages": [
-    "npm:pi-rewind-hook",
-    "npm:pi-opencode-direct"
+    "npm:pi-rewind-hook"
   ],
   "retry": {
     "enabled": true

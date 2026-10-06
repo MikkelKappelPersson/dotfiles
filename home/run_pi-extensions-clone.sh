@@ -39,4 +39,13 @@ ensure_deps "pi-shepherd"
 ensure_deps "pi-zvec-grep"
 ensure_deps "pi-opencode-direct-rotator"
 
+# pi-opencode-direct-rotator needs a physical pi-ai copy at runtime (Pi's
+# loader doesn't map the .lazy subpaths), but it must NOT be in
+# dependencies (host-provided packages must be peer-only, else Pi warns).
+# --no-save installs the files without touching package.json.
+if [ -d "${EXT_DIR}/pi-opencode-direct-rotator" ] && [ ! -d "${EXT_DIR}/pi-opencode-direct-rotator/node_modules/@earendil-works/pi-ai" ]; then
+  echo "pi extension pi-opencode-direct-rotator: installing runtime pi-ai copy (no-save)"
+  (cd "${EXT_DIR}/pi-opencode-direct-rotator" && npm install --no-save @earendil-works/pi-ai@0.86.1)
+fi
+
 echo "pi extensions ready"
