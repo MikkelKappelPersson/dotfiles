@@ -57,3 +57,6 @@ function y() {
 if [ -f "$HOME/.bashrc.local" ]; then
   . "$HOME/.bashrc.local"
 fi
+
+# Pi
+export PATH="/home/mikkelkp/.pi/agent/bin:$PATH"
