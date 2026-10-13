@@ -12,7 +12,7 @@ font-size = 12
 
 # --- Theme & colors ---
 # theme = Catppuccin Mocha
-theme = Hueboxtest
+theme = Nightspice
 
 # --- Window ---
 window-padding-x = 14
