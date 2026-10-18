@@ -60,3 +60,6 @@ fi
 
 # Pi
 export PATH="/home/mikkelkp/.pi/agent/bin:$PATH"
+
+# opencode
+export PATH=/home/mikkelkp/.opencode/bin:$PATH
