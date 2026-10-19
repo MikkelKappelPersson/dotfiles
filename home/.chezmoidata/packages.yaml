@@ -7,6 +7,8 @@ packages:
       - starship
       - rclone
       - bitwarden-cli
+      - broot
+      - zoxide
 
       # Security
       - wireguard-tools

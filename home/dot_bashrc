@@ -42,6 +42,26 @@ export PATH="/home/mikkelkp/.local/bin:$PATH"
 export PATH="$HOME/.npm-global/bin:$PATH"
 
 
+# zoxide: smarter cd (`z`, `zi`). The init installs the cd hook that records
+# visited directories, so it must be evaluated from the interactive shell.
+eval "$(zoxide init bash)"
+
+# broot: `br` shell function (broot cannot cd from a subshell without it).
+# Equivalent to `broot --print-shell-function bash`; kept here so chezmoi owns it.
+function br {
+    local cmd cmd_file code
+    cmd_file=$(mktemp)
+    if broot --outcmd "$cmd_file" "$@"; then
+        cmd=$(<"$cmd_file")
+        command rm -f "$cmd_file"
+        eval "$cmd"
+    else
+        code=$?
+        command rm -f "$cmd_file"
+        return "$code"
+    fi
+}
+
 # Yazi: leave a current dir
 function y() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
