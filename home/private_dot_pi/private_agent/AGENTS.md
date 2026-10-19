@@ -15,6 +15,10 @@ Do **not** report it as a remaining delta, and do not ask whether to change it.
 Real drift is a non-space character in the **first** column (`M`, `A`, `D`).
 Second-column entries are predictions of what `apply` will do.
 
+Likewise, `chezmoi diff` prints the full body of every `run_` script as a
+"new file" hunk. That is the script content `apply` would execute, not a file
+diff. Ignore it.
+
 ### `home/run_pi-extensions-clone.sh`
 
 Intentionally `run_`, not `run_once_` or `run_onchange_`:
