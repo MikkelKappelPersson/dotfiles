@@ -12,8 +12,11 @@ Managed with [chezmoi](https://www.chezmoi.io/). Source state is `home/` (see `.
 | `home/run_pi-extensions-clone.sh` | clone/pull pi extension git repos (runs every apply) |
 | `home/run_onchange_endeavouros-install-packages.sh.tmpl` | package install on package-list change |
 | `home/run_onchange_gnome-*.sh.tmpl` | GNOME settings/shortcuts on change |
-| `home/run_once_thunderbird-profile.sh` | Thunderbird profile bootstrap, once |
 | `.github/copilot-instructions.md` | machine spec for agents working in this repo |
+
+Not tracked on purpose: the Betterbird/Thunderbird profile (`~/.thunderbird`).
+Mail account, identity, server and calendar definitions live only on the machine
+that uses them; credentials (`key4.db`, `logins.json`) must never be committed.
 
 ## Scripts
 
