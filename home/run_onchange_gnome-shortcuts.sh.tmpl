@@ -31,14 +31,19 @@ gsettings set org.gnome.desktop.wm.keybindings close "['<Alt>F4', '<Super>q']"
 
 echo "GNOME shortcuts applied"
 
-# --- omo voice flow (Alt+X): merged non-destructively into custom-keybindings.
-# Other machines keep their own customs; we only ensure ours exists.
+# --- omo voice flows (Alt+X local, Alt+C remote eos-ext): merged
+# non-destructively into custom-keybindings. Other machines keep their own
+# customs; we only ensure ours exist.
 if command -v python3 >/dev/null 2>&1; then
 python3 - <<'PYEOF'
 import json, subprocess
 PREFIX = "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/"
-KEY = "omo-send/"
-PATH_ = PREFIX + KEY
+ENTRIES = {
+    "omo-send": ("omo toggle (record/send)",
+                   "$HOME/.local/bin/omo --quiet toggle", "<Alt>x"),
+    "omo-remote": ("omo toggle remote eos-ext (record/send)",
+                     "$HOME/.local/bin/omo --quiet toggle --machine eos-ext", "<Alt>c"),
+}
 
 def get(schema_path, key):
     p = subprocess.run(["gsettings", "get", schema_path, key],
@@ -56,14 +61,19 @@ if raw.startswith("["):
         paths = json.loads(raw.replace("'", '"'))
     except json.JSONDecodeError:
         paths = []
-if PATH_ not in paths:
-    paths.append(PATH_)
+changed = False
+for key in ENTRIES:
+    if PREFIX + key + "/" not in paths:
+        paths.append(PREFIX + key + "/")
+        changed = True
+if changed:
     set_(base, "custom-keybindings", str(paths).replace('"', "'"))
-entry = f"{base}.custom-keybinding:{PATH_}"
 import os
-set_(entry, "name", "omo toggle (record/send)")
-set_(entry, "command", os.path.expandvars("$HOME/.local/bin/omo --quiet toggle"))
-set_(entry, "binding", "<Alt>x")
+for key, (name, cmd, binding) in ENTRIES.items():
+    entry = f"{base}.custom-keybinding:{PREFIX}{key}/"
+    set_(entry, "name", name)
+    set_(entry, "command", os.path.expandvars(cmd))
+    set_(entry, "binding", binding)
 PYEOF
-echo "omo Alt+X shortcut ensured"
+echo "omo Alt+X / Alt+C shortcuts ensured"
 fi
