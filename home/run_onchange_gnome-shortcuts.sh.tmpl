@@ -30,3 +30,40 @@ gsettings set org.gnome.shell.keybindings open-new-window-application-5 "['<Supe
 gsettings set org.gnome.desktop.wm.keybindings close "['<Alt>F4', '<Super>q']"
 
 echo "GNOME shortcuts applied"
+
+# --- omo voice flow (Alt+X): merged non-destructively into custom-keybindings.
+# Other machines keep their own customs; we only ensure ours exists.
+if command -v python3 >/dev/null 2>&1; then
+python3 - <<'PYEOF'
+import json, subprocess
+PREFIX = "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/"
+KEY = "omo-send/"
+PATH_ = PREFIX + KEY
+
+def get(schema_path, key):
+    p = subprocess.run(["gsettings", "get", schema_path, key],
+                       text=True, capture_output=True)
+    return p.stdout.strip() if p.returncode == 0 else ""
+
+def set_(schema_path, key, value):
+    subprocess.run(["gsettings", "set", schema_path, key, value], check=False)
+
+base = "org.gnome.settings-daemon.plugins.media-keys"
+raw = get(base, "custom-keybindings")
+paths = []
+if raw.startswith("["):
+    try:
+        paths = json.loads(raw.replace("'", '"'))
+    except json.JSONDecodeError:
+        paths = []
+if PATH_ not in paths:
+    paths.append(PATH_)
+    set_(base, "custom-keybindings", str(paths).replace('"', "'"))
+entry = f"{base}.custom-keybinding:{PATH_}"
+import os
+set_(entry, "name", "omo toggle (record/send)")
+set_(entry, "command", os.path.expandvars("$HOME/.local/bin/omo --quiet toggle"))
+set_(entry, "binding", "<Alt>x")
+PYEOF
+echo "omo Alt+X shortcut ensured"
+fi

@@ -1,0 +1,74 @@
+[
+  {
+    "trigger": "pie",
+    "replacement": "Pi"
+  },
+  {
+    "trigger": "pain",
+    "replacement": "pane"
+  },
+  {
+    "trigger": "tap",
+    "replacement": "tab"
+  },
+  {
+    "trigger": "taps",
+    "replacement": "tabs"
+  },
+  {
+    "trigger": "hurda",
+    "replacement": "Herdr"
+  },
+  {
+    "trigger": "hearda",
+    "replacement": "Herdr"
+  },
+  {
+    "trigger": "hrd",
+    "replacement": "Herdr"
+  },
+  {
+    "trigger": "hutter",
+    "replacement": "Herdr"
+  },
+  {
+    "trigger": "chez moi",
+    "replacement": "chezmoi"
+  },
+  {
+    "trigger": "sh moi",
+    "replacement": "chezmoi"
+  },
+  {
+    "trigger": "shmoi",
+    "replacement": "chezmoi"
+  },
+  {
+    "trigger": "dot files",
+    "replacement": "dotfiles"
+  },
+  {
+    "trigger": "git hub",
+    "replacement": "GitHub"
+  },
+  {
+    "trigger": "G H",
+    "replacement": "gh"
+  },
+  {
+    "trigger": "shmoir",
+    "replacement": "chezmoi"
+  },
+  {
+    "trigger": "shizmoir",
+    "replacement": "chezmoi"
+  },
+  {
+    "trigger": "shiz moi",
+    "replacement": "chezmoi"
+  },
+  {
+    "trigger": "shees moi",
+    "replacement": "chezmoi"
+  }
+]

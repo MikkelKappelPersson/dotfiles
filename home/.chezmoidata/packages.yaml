@@ -40,6 +40,11 @@ packages:
       - pipewire-pulse
       - pavucontrol
 
+      # Voice / dictation (oh-my-openwhispr agent flow: Alt+X)
+      - openwhispr-bin
+      - ydotool
+      - wl-clipboard
+
       # Fonts
       - ttf-noto-nerd
 
