@@ -78,5 +78,17 @@
   {
     "trigger": "slashcompact",
     "replacement": "/compact"
+  },
+  {
+    "trigger": "shess moi",
+    "replacement": "chezmoi"
+  },
+  {
+    "trigger": "shessmoi",
+    "replacement": "chezmoi"
+  },
+  {
+    "trigger": "shess",
+    "replacement": "chez"
   }
 ]
