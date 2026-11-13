@@ -43,6 +43,8 @@ ENTRIES = {
                    "$HOME/.local/bin/omo --quiet toggle", "<Alt>x"),
     "omo-remote": ("omo toggle remote eos-ext (record/send)",
                      "$HOME/.local/bin/omo --quiet toggle --machine eos-ext", "<Alt>c"),
+    "omo-cancel": ("omo cancel in-progress capture (send nothing)",
+                     "$HOME/.local/bin/omo cancel", "<Alt>q"),
 }
 
 def get(schema_path, key):
@@ -75,5 +77,5 @@ for key, (name, cmd, binding) in ENTRIES.items():
     set_(entry, "command", os.path.expandvars(cmd))
     set_(entry, "binding", binding)
 PYEOF
-echo "omo Alt+X / Alt+C shortcuts ensured"
+echo "omo Alt+X / Alt+C / Alt+Q shortcuts ensured"
 fi
