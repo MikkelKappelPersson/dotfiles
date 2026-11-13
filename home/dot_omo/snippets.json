@@ -70,5 +70,13 @@
   {
     "trigger": "shees moi",
     "replacement": "chezmoi"
+  },
+  {
+    "trigger": "slash compact",
+    "replacement": "/compact"
+  },
+  {
+    "trigger": "slashcompact",
+    "replacement": "/compact"
   }
 ]
