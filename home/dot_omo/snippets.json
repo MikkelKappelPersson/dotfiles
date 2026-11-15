@@ -90,5 +90,153 @@
   {
     "trigger": "shess",
     "replacement": "chez"
+  },
+  {
+    "trigger": "chishmoir",
+    "replacement": "chezmoi"
+  },
+  {
+    "trigger": "chesmois",
+    "replacement": "chezmoi"
+  },
+  {
+    "trigger": "chismois",
+    "replacement": "chezmoi"
+  },
+  {
+    "trigger": "chesmoi",
+    "replacement": "chezmoi"
+  },
+  {
+    "trigger": "chismoi",
+    "replacement": "chezmoi"
+  },
+  {
+    "trigger": "chesmoir",
+    "replacement": "chezmoi"
+  },
+  {
+    "trigger": "chismoir",
+    "replacement": "chezmoi"
+  },
+  {
+    "trigger": "chishmoi",
+    "replacement": "chezmoi"
+  },
+  {
+    "trigger": "chishmois",
+    "replacement": "chezmoi"
+  },
+  {
+    "trigger": "ches moi",
+    "replacement": "chezmoi"
+  },
+  {
+    "trigger": "chis moi",
+    "replacement": "chezmoi"
+  },
+  {
+    "trigger": "shes moi",
+    "replacement": "chezmoi"
+  },
+  {
+    "trigger": "shis moi",
+    "replacement": "chezmoi"
+  },
+  {
+    "trigger": "chiz moi",
+    "replacement": "chezmoi"
+  },
+  {
+    "trigger": "shish moi",
+    "replacement": "chezmoi"
+  },
+  {
+    "trigger": "chish moi",
+    "replacement": "chezmoi"
+  },
+  {
+    "trigger": "chez moir",
+    "replacement": "chezmoi"
+  },
+  {
+    "trigger": "ches moir",
+    "replacement": "chezmoi"
+  },
+  {
+    "trigger": "shes moir",
+    "replacement": "chezmoi"
+  },
+  {
+    "trigger": "chizmoi",
+    "replacement": "chezmoi"
+  },
+  {
+    "trigger": "shesmoi",
+    "replacement": "chezmoi"
+  },
+  {
+    "trigger": "shismoi",
+    "replacement": "chezmoi"
+  },
+  {
+    "trigger": "shizmoi",
+    "replacement": "chezmoi"
+  },
+  {
+    "trigger": "chezmois",
+    "replacement": "chezmoi"
+  },
+  {
+    "trigger": "shesmois",
+    "replacement": "chezmoi"
+  },
+  {
+    "trigger": "shismois",
+    "replacement": "chezmoi"
+  },
+  {
+    "trigger": "sheesmoi",
+    "replacement": "chezmoi"
+  },
+  {
+    "trigger": "sheesmois",
+    "replacement": "chezmoi"
+  },
+  {
+    "trigger": "shessmois",
+    "replacement": "chezmoi"
+  },
+  {
+    "trigger": "shessmoir",
+    "replacement": "chezmoi"
+  },
+  {
+    "trigger": "chezmoir",
+    "replacement": "chezmoi"
+  },
+  {
+    "trigger": "shesmoir",
+    "replacement": "chezmoi"
+  },
+  {
+    "trigger": "shismoir",
+    "replacement": "chezmoi"
+  },
+  {
+    "trigger": "shishmoi",
+    "replacement": "chezmoi"
+  },
+  {
+    "trigger": "shishmoir",
+    "replacement": "chezmoi"
+  },
+  {
+    "trigger": "chizmoir",
+    "replacement": "chezmoi"
+  },
+  {
+    "trigger": "chizmois",
+    "replacement": "chezmoi"
   }
 ]
