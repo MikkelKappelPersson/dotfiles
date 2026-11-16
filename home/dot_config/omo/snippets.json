@@ -238,5 +238,97 @@
   {
     "trigger": "chizmois",
     "replacement": "chezmoi"
+  },
+  {
+    "trigger": "EOSX",
+    "replacement": "eos-ext"
+  },
+  {
+    "trigger": "hurder",
+    "replacement": "Herdr"
+  },
+  {
+    "trigger": "in your pain",
+    "replacement": "in your pane"
+  },
+  {
+    "trigger": "your pain",
+    "replacement": "your pane"
+  },
+  {
+    "trigger": "ios yoga",
+    "replacement": "eos-yoga"
+  },
+  {
+    "trigger": "eos yoga",
+    "replacement": "eos-yoga"
+  },
+  {
+    "trigger": "eos desktop",
+    "replacement": "eos-desktop"
+  },
+  {
+    "trigger": "eos ext",
+    "replacement": "eos-ext"
+  },
+  {
+    "trigger": "ears ext",
+    "replacement": "eos-ext"
+  },
+  {
+    "trigger": "eos x",
+    "replacement": "eos-ext"
+  },
+  {
+    "trigger": "herdr app",
+    "replacement": "herdr-app"
+  },
+  {
+    "trigger": "herd app",
+    "replacement": "herdr-app"
+  },
+  {
+    "trigger": "herder app",
+    "replacement": "herdr-app"
+  },
+  {
+    "trigger": "heard app",
+    "replacement": "herdr-app"
+  },
+  {
+    "trigger": "huddle app",
+    "replacement": "herdr-app"
+  },
+  {
+    "trigger": "hurder app",
+    "replacement": "herdr-app"
+  },
+  {
+    "trigger": "herdr core",
+    "replacement": "herdr-core"
+  },
+  {
+    "trigger": "herd core",
+    "replacement": "herdr-core"
+  },
+  {
+    "trigger": "herder core",
+    "replacement": "herdr-core"
+  },
+  {
+    "trigger": "hearder core",
+    "replacement": "herdr-core"
+  },
+  {
+    "trigger": "hurder core",
+    "replacement": "herdr-core"
+  },
+  {
+    "trigger": "hurdur",
+    "replacement": "herdr"
+  },
+  {
+    "trigger": "hurdr",
+    "replacement": "herdr"
   }
 ]
