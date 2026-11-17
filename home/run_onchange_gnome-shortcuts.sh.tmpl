@@ -7,8 +7,8 @@ if [ "${XDG_CURRENT_DESKTOP-}" != "GNOME" ] && [ "${XDG_SESSION_DESKTOP-}" != "g
     exit 0
 fi
 
-# Set favorites in order for switch-to-application-1 through 5
-gsettings set org.gnome.shell favorite-apps "['firefox.desktop','com.mitchellh.ghostty.desktop','com.microsoft.VSCode.desktop','eu.betterbird.Betterbird.desktop','org.gnome.Nautilus.desktop']"
+# Set favorites in order for switch-to-application-1 through 6
+gsettings set org.gnome.shell favorite-apps "['firefox.desktop','com.mitchellh.ghostty.desktop','com.microsoft.VSCode.desktop','eu.betterbird.Betterbird.desktop','org.gnome.Nautilus.desktop','herdr-app.desktop']"
 
 # Disable conflicting GNOME shortcuts
 gsettings set org.gnome.shell.keybindings toggle-message-tray "['<Super>v']"
@@ -19,15 +19,20 @@ gsettings set org.gnome.shell.keybindings switch-to-application-2 "['<Super>Retu
 gsettings set org.gnome.shell.keybindings switch-to-application-3 "['<Super>c']"
 gsettings set org.gnome.shell.keybindings switch-to-application-4 "['<Super>m']"
 gsettings set org.gnome.shell.keybindings switch-to-application-5 "['<Super>e']"
+gsettings set org.gnome.shell.keybindings switch-to-application-6 "['<Super>h']"
 
 gsettings set org.gnome.shell.keybindings open-new-window-application-1 "['<Super><Control>b']"
 gsettings set org.gnome.shell.keybindings open-new-window-application-2 "['<Super><Control>Return']"
 gsettings set org.gnome.shell.keybindings open-new-window-application-3 "['<Super><Control>c']"
 gsettings set org.gnome.shell.keybindings open-new-window-application-4 "['<Super><Control>m']"
 gsettings set org.gnome.shell.keybindings open-new-window-application-5 "['<Super><Control>e']"
+gsettings set org.gnome.shell.keybindings open-new-window-application-6 "['<Super><Control>h']"
 
 # Super+q to close current window
 gsettings set org.gnome.desktop.wm.keybindings close "['<Alt>F4', '<Super>q']"
+
+# Move minimize off Super+h (now switches to Herdr)
+gsettings set org.gnome.desktop.wm.keybindings minimize "['<Super><Shift>h']"
 
 echo "GNOME shortcuts applied"
 
