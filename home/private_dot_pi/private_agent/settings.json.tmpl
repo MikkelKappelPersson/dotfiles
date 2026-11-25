@@ -1,33 +1,38 @@
-{{- /* Keep pi's own lastChangelogVersion: preserve whatever version is already
-     installed locally so `chezmoi status` stays clean across pi upgrades.
-     Falls back to the version below on fresh machines. */ -}}
+{{- /* Keep pi's own version bookkeeping: preserve whatever versions are already
+      installed locally so `chezmoi status` stays clean across pi/extension
+      upgrades. Fall back to the values below on fresh machines. */ -}}
 {{- $settingsPath := joinPath .chezmoi.homeDir ".pi/agent/settings.json" -}}
 {{- $lastChangelogVersion := "1.2.0" -}}
+{{- $extensionChangelogVersions := dict -}}
 {{- if stat $settingsPath -}}
-{{-   $lastChangelogVersion = output "cat" $settingsPath | fromJson | dig "lastChangelogVersion" $lastChangelogVersion -}}
+{{-   $current := output "cat" $settingsPath | fromJson -}}
+{{-   $lastChangelogVersion = dig "lastChangelogVersion" $lastChangelogVersion $current -}}
+{{-   $extensionChangelogVersions = dig "extensionChangelogVersions" $extensionChangelogVersions $current -}}
 {{- end -}}
 {
   "lastChangelogVersion": {{ $lastChangelogVersion | quote }},
   "theme": "system",
-  "defaultProvider": "opencode-zen-free",
-  "defaultModel": "minimax-m3.1-flash-free",
+  "defaultProvider": "meta",
+  "defaultModel": "muse-spark-1.3-contributor",
   "defaultThinkingLevel": "max",
   "enableSkillCommands": true,
-  "defaultTools": ["+codemode"],
+  "defaultTools": [
+    "+codemode"
+  ],
   "showHardwareCursor": false,
   "packages": [
-    "npm:pi-rewind-hook"
+    "npm:pi-rewind-hook",
+    "../../projects/shepherd"
   ],
   "retry": {
     "enabled": true
   },
   "enabledModels": [
     "openrouter/openrouter/free",
-    "openrouter/meta/muse-spark-1.3-contributor",
     "vllm-eos-ext/qwen3.8-27b",
-    "opencode-zen-free/glm-5.3-flash-free",
-    "opencode-zen-free/deepseek-v4.1-flash-free",
-    "opencode-zen-free/minimax-m3.1-flash-free"
+    "meta/muse-ember-1.0",
+    "meta/muse-spark-1.3-contributor",
+    "opencode-zen-free/tidepool-alpha-free"
   ],
   "treeFilterMode": "default",
   "markdown": {
@@ -36,5 +41,7 @@
   "showCacheMissNotices": true,
   "defaultProjectTrust": "always",
   "doubleEscapeAction": "tree",
-  "tuiMode": "fullscreen"
+  "tuiMode": "fullscreen",
+  "extensionChangelogVersions": {{ $extensionChangelogVersions | toPrettyJson | trimSuffix "\n" | replace "\n" "\n  " }},
+  "hideThinkingBlock": true
 }

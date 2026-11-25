@@ -83,3 +83,6 @@ export PATH="/home/mikkelkp/.pi/agent/bin:$PATH"
 
 # opencode
 export PATH=/home/mikkelkp/.opencode/bin:$PATH
+
+# Rust (rustup installs this; guard for machines without it)
+[ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
