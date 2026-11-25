@@ -16,7 +16,7 @@ Specs live in `spec/`, one numbered folder per effort:
 
 ```
 spec/
-  001-omo-app/
+  001-example-app/
     intent.md      # what was asked for — proto-spec, originator's words (always)
     spec.md        # what was decided — feature spec, testable requirements (always)
     plan.md        # how: technical design (always, no tasks)
@@ -24,7 +24,7 @@ spec/
     tasks.md       # what to do, phased checklist (always)
 ```
 
-Folder: `NNN-slug` — zero-padded sequence, short kebab slug (`001-omo-app`).
+Folder: `NNN-slug` — zero-padded sequence, short kebab slug (`001-example-app`).
 Keep every file small; link instead of repeating.
 
 ## Two artifacts, two jobs
@@ -141,7 +141,7 @@ All work, phased, tickable. Derived from the user stories and requirements in
 `spec.md` plus the design in `plan.md`.
 
 ```markdown
-# Tasks — omo app
+# Tasks — example app
 
 ## Phase 1 — take store (US1)
 - [x] T001 [US1] durable take JSON + clips

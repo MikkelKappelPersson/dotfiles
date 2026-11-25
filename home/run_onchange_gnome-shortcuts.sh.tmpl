@@ -36,7 +36,7 @@ gsettings set org.gnome.desktop.wm.keybindings minimize "['<Super><Shift>h']"
 
 echo "GNOME shortcuts applied"
 
-# --- omo voice flows (Alt+X local, Alt+C remote eos-ext): merged
+# --- omh voice flows (Alt+X local, Alt+C remote eos-ext): merged
 # non-destructively into custom-keybindings. Other machines keep their own
 # customs; we only ensure ours exist.
 if command -v python3 >/dev/null 2>&1; then
@@ -44,14 +44,14 @@ python3 - <<'PYEOF'
 import json, subprocess
 PREFIX = "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/"
 ENTRIES = {
-    "omo-send": ("omo toggle (record/send)",
-                   "$HOME/.local/bin/omo --quiet toggle", "<Alt>x"),
-    "omo-remote": ("omo toggle remote eos-ext (record/send)",
-                     "$HOME/.local/bin/omo --quiet toggle --machine eos-ext", "<Alt>c"),
-    "omo-cancel": ("omo cancel in-progress capture (send nothing)",
-                     "$HOME/.local/bin/omo cancel", "<Alt>q"),
-    "omo-llm": ("omo toggle LLM polish (on/off)",
-                  "$HOME/.local/bin/omo llm", "<Alt>l"),
+    "omh-send": ("omh toggle (record/send)",
+                   "$HOME/.local/bin/omh --quiet toggle", "<Alt>x"),
+    "omh-remote": ("omh toggle remote eos-ext (record/send)",
+                     "$HOME/.local/bin/omh --quiet toggle --machine eos-ext", "<Alt>c"),
+    "omh-cancel": ("omh cancel in-progress capture (send nothing)",
+                     "$HOME/.local/bin/omh cancel", "<Alt>q"),
+    "omh-llm": ("omh toggle LLM polish (on/off)",
+                  "$HOME/.local/bin/omh llm", "<Alt>l"),
 }
 
 def get(schema_path, key):
@@ -84,5 +84,5 @@ for key, (name, cmd, binding) in ENTRIES.items():
     set_(entry, "command", os.path.expandvars(cmd))
     set_(entry, "binding", binding)
 PYEOF
-echo "omo Alt+X / Alt+C / Alt+Q / Alt+L shortcuts ensured"
+echo "omh Alt+X / Alt+C / Alt+Q / Alt+L shortcuts ensured"
 fi

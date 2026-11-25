@@ -1,3 +1,3 @@
-# omo sends dictate into a pane; they must not wait for a person's draft.
+# omh sends dictate into a pane; they must not wait for a person's draft.
 # 0 = only the ~3 s quiet pause (read on every delivery by herdr-core).
 draft_wait = 0
